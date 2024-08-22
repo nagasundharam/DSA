@@ -57,23 +57,94 @@ class LinkedList:
         else:
             n = self.head
             while n is not None:
-                print(n.data)
+                print(n.data,'--->',end='')
                 n = n.ref
-        
+    
+    #adding into the element in the begin
+
     def add_begin(self,data):
         new_node = Node(data)
         new_node.ref = self.head
         self.head = new_node
     
+    def add_end(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            n = self.head
+            while n.ref  is not None:
+                n = n.ref
+            n.ref = new_node
 
+    def after_node(self,data,x):
+
+        n = self.head
+        while n is not None:
+            if (n.data == x):
+                break
+         
+            n = n.ref
+
+        if (n is  None):
+            print("node is not present in LL")
+        else:
+            new_node = Node(data)
+            new_node.ref = n.ref
+            n.ref = new_node
+
+    def before_node(self,data,x):
+        if self.head is None:
+            print("Linked List is Empty")
+            return
+
+        if self.head.data  == x :
+            new_node = Node(data)
+            new_node.ref = self.head
+            self.head = new_node
+            return
+        else:
+            n = self.head
+            while n is not None :
+                if (n.ref.data == x):
+                    break
+                n = n.ref
+            if n.ref is None:
+                print("we didnt find any value")
+                return
+            new_node = Node(data)
+            new_node.ref = n.ref
+            n.ref = new_node
+    def insert_empty(self,data):
+        if self.head is None:
+            new_node = Node(data)
+            self.head = new_node
+        else:
+            print("Linked list is not empty")
+
+        
+
+        
+
+        
+
+
+         
+
+
+
+
+
+
+    #
    
        
 
 ll1 = LinkedList()
-ll1.add_begin(10)
-ll1.add_begin(20)
-ll1.add_begin(30)
-ll1.add_begin(40)
+ll1.insert_empty(10)
+ll1.insert_empty(20)
+# ll1.after_node(80,100)
+
 ll1.print_LL()
     
 

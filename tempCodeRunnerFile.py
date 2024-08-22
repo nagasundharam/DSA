@@ -1,2 +1,1 @@
-
-# node1 = Node(10)
+ll1.after_node(80,100)
