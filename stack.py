@@ -75,7 +75,7 @@ stack.put(30)
 print(stack.get())
 print(stack.get())
 print(stack.get())
-print(stack.get(timeout= 1))  ==> it return error stack is empty
+# print(stack.get(timeout= 1))  ==> it return error stack is empty
 
 
 
