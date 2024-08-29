@@ -32,6 +32,7 @@ class DoublyLL:
                         
 
         def Print_DLL_rev(self):
+
               
                 
                 if self.head is None:
@@ -42,7 +43,7 @@ class DoublyLL:
                         while n.next is not None:
                                 
                                 n = n.next
-                        
+                        print()
                         while n is not None:
                                 print(n.data,'-->',end ="")
                                 n = n.prev
@@ -116,8 +117,63 @@ class DoublyLL:
                                 if n.next is not None:
                                         n.next.prev =new_node
                                 n.next = new_node
+ 
 
-                                
+        def delete_begin(self):
+                if self.head is None:
+                        print("LL is rmpty cant delete")
+
+                if self.head.next is None:
+                        self.head = None
+                        print("DLL is empty after deleting the node")
+                else:
+                        self.head = self.head.next
+                        self.head.prev = None
+
+        def delete_end(self):
+                if self.head is None:
+                        print("LL is empty")
+                if self.head.next is None:
+                        self.head = None
+                        print("DLL is empty after deleting this node")
+                else:
+                        n = self.head
+                        while n.next is not None:
+                                n = n.next
+
+                        n.prev.next = None
+                        n.prev = None
+
+                
+
+
+        
+        def dele_by_value(self,x) :
+                if self.head is None:
+                        print("LL is Empty")
+                        return
+                if self.head.data == x :
+                        self.delete_begin()
+                        return
+                n = self.head
+                while n is not None:
+                        if n.data == x :
+                                break
+                        n = n.next
+                if n is None:
+                        print("not found")
+                else:
+                        n.prev.next = n.next
+                        if n.next is not None:
+                                n.next.prev = n.prev
+
+
+                
+                
+
+
+
+
 
 
 
@@ -134,9 +190,14 @@ dl1.insert_empty(30)
 dl1.add_begin(40)
 dl1.add_begin(50)
 dl1.add_end(100)
-dl1.add_before(45,50)
+
 dl1.add_after(105,100)
+dl1.delete_begin()
+dl1.delete_end()
+dl1.dele_by_value(40)
 dl1.Print_DLL()
+dl1.Print_DLL_rev()
+
         
 
 
